@@ -1,0 +1,15 @@
+# Build artifacts
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+
+# Executables
+simd_engine
+*.out
+*.app
+
+# IDEs
+.idea/
+.vscode/
+*.swp
