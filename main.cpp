@@ -6,10 +6,7 @@ using namespace std;
 using namespace std::chrono;
 
 void runBenchmark(size_t M, size_t K, size_t N) {
-    cout << "=========================================\n";
-    cout << "Benchmarking GEMM: " << M << "x" << K << " * " << K << "x" << N << "\n";
-    cout << "=========================================\n";
-
+    cout << "\nRunning GEMM test: " << M << "x" << K << " * " << K << "x" << N << "\n";
     size_t totalFloats = M * K + K * N + 3 * (M * N);
     LinearAllocator allocator(totalFloats + 1024);
 
@@ -40,8 +37,7 @@ void runBenchmark(size_t M, size_t K, size_t N) {
     bool tiledCorrect = C_naive.isEquivalent(C_tiled, 1e-3f);
     bool simdCorrect = C_naive.isEquivalent(C_simd, 1e-3f);
 
-    cout << "Implementation\tTime (us)\tCorrectness\n";
-    cout << "--------------------------------------------------\n";
+    cout << "Method\t\tTime (us)\tStatus\n";
     
     cout << "Naive\t\t" << durationNaive << "\t\tBaseline\n";
     
